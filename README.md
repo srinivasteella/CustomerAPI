@@ -7,14 +7,23 @@ The overall objective of the application is to make customer API that allows man
 >	Find a Customer by Firts or Last Name
 >	Delete a Customer
 
-# Sample Input to Add, Update and Delete a customer
+# Sample Input to Add a customer
 
 {
-  "id": 1,
   "firstName": "firtsname",
   "lastName": "lastname",
   "dob": "01/01/2000"
 }
+
+# Sample Input to Update or Delete a customer
+
+{
+   "id":1
+  "firstName": "firtsname",
+  "lastName": "lastname",
+  "dob": "01/01/2000"
+}
+
 
 # Sample input to Find a customer
 
