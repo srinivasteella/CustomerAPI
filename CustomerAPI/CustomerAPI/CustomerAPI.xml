@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CustomerAPI</name>
+    </assembly>
+    <members>
+        <member name="M:CustomerAPI.Controllers.CustomerController.AddCustomer(CustomerAPI.Model.Customer)">
+            <summary>
+            Add customer details
+            </summary>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomerAPI.Controllers.CustomerController.FindCustomer(System.String)">
+            <summary>
+            Find customer details
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
