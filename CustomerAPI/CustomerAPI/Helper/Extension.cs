@@ -13,7 +13,6 @@ namespace CustomerAPI.Helper
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IDbContext, DataContext>();
             services.AddScoped<IDBManager, DBManager>();
-
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             return services;
         }

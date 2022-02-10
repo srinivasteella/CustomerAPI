@@ -37,7 +37,6 @@ namespace CustomerAPI.Service
             catch (Exception)
             {
                 //log
-                return isSuccess;
             }
             return isSuccess;
         }
@@ -55,7 +54,6 @@ namespace CustomerAPI.Service
             catch (Exception)
             {
                 //log
-                return isSuccess;
             }
             return isSuccess;
         }
@@ -89,7 +87,6 @@ namespace CustomerAPI.Service
             catch (Exception)
             {
                 //log
-                return null;
             }
             return customer;
         }
@@ -107,7 +104,6 @@ namespace CustomerAPI.Service
             catch (Exception)
             {
                 //log
-                return isSuccess;
             }
 
             return isSuccess;

@@ -15,8 +15,8 @@ namespace CustomerAPI.Tests
         public CustomerServiceUnitTest()
         {
             moqDBManager = new Mock<IDBManager>();
-            customerList = new List<Customer> { new Customer { Id = 1, firstName = "Lorem", lastName = "Ipsum", dob = "01/01/2000" },
-                                            new Customer { Id = 2, firstName = "testfirstname", lastName = "testlastname", dob = "1/1/1980" }};
+            customerList = new List<Customer> { new Customer { id = 1, firstName = "Lorem", lastName = "Ipsum", dob = "01/01/2000" },
+                                            new Customer { id = 2, firstName = "testfirstname", lastName = "testlastname", dob = "1/1/1980" }};
         }
         [Fact]
         public void Successfull_AddCustomer_ReturnTrue()
