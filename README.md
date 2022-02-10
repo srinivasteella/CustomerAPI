@@ -7,5 +7,3 @@ The overall objective of the application is to make customer API that allows man
 >	Find a Customer
 >	Delete a Customer
 
-### Snap Shots
-![image](https://github.com/srinivasteella/CustomerAPI/blob/main/API.PNG)
