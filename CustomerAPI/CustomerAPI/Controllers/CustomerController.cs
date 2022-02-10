@@ -20,52 +20,82 @@ namespace CustomerAPI.Controllers
         }
 
         /// <summary>
-        /// Add customer details
+        /// Add a customer 
         /// </summary>
         /// <param name="customer"></param>
         /// <returns></returns>
         [HttpPost("AddCustomer")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Customer))]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Customer))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> AddCustomer([FromBody] Customer customer)
         {
             if (customer == null || !ModelState.IsValid) return BadRequest(ModelState);
-
-            try
-            {
-                var result = _customerService.AddCustomer(customer);
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "something went wrong");//catch/throw/log
-            }
-            return Ok();
+            bool isSuccess;
+            isSuccess = await _customerService.AddCustomer(customer);
+            return Ok(isSuccess);
         }
 
         /// <summary>
-        /// Find customer details
+        /// Update a customer 
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="customer"></param>
         /// <returns></returns>
-        [HttpPost("FindCustomer")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Customer))]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)]
-        public async Task<IActionResult> FindCustomer([FromBody] string name)
+        [HttpPost("UpdateCustomer")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Customer))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> UpdateCustomer([FromBody] Customer customer)
+        {
+            if (customer == null || !ModelState.IsValid) return BadRequest(ModelState);
+            bool isSuccess;
+            isSuccess = await _customerService.UpdateCustomer(customer);
+            return Ok(isSuccess);
+        }
+
+        /// <summary>
+        /// Delete a customer 
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <returns></returns>
+        [HttpPost("DeleteCustomer")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Customer))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> DeleteCustomer([FromBody] Customer customer)
+        {
+            if (customer == null || !ModelState.IsValid) return BadRequest(ModelState);
+            bool isSuccess;
+            isSuccess = await _customerService.DeleteCustomer(customer);
+            return Ok(isSuccess);
+        }
+
+
+        /// <summary>
+        /// Get all customers
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Customer>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public async Task<IActionResult> Get()
         {
             IEnumerable<Customer> customer;
+            customer = await _customerService.GetCustomer();
+            return Ok(customer);
+        }
 
-            if (string.IsNullOrEmpty(name)) return BadRequest(ModelState);
-
-            try
-            {
-                customer = _customerService.GetCustomer();
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "something went wrong");//catch/throw/log
-            }
+        /// <summary>
+        /// Search customer 
+        /// </summary>
+        /// <param name="searchWord"></param>
+        /// <returns></returns>
+        [HttpPost("FindCustomer")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Customer))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> FindCustomer([FromBody] string searchWord)
+        {
+            if (searchWord == null || !ModelState.IsValid) return BadRequest(ModelState);
+            Customer customer;
+            customer = await _customerService.FindCustomer(searchWord);
             return Ok(customer);
         }
     }

@@ -6,16 +6,36 @@
     <members>
         <member name="M:CustomerAPI.Controllers.CustomerController.AddCustomer(CustomerAPI.Model.Customer)">
             <summary>
-            Add customer details
+            Add a customer 
             </summary>
             <param name="customer"></param>
             <returns></returns>
         </member>
+        <member name="M:CustomerAPI.Controllers.CustomerController.UpdateCustomer(CustomerAPI.Model.Customer)">
+            <summary>
+            Update a customer 
+            </summary>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomerAPI.Controllers.CustomerController.DeleteCustomer(CustomerAPI.Model.Customer)">
+            <summary>
+            Delete a customer 
+            </summary>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CustomerAPI.Controllers.CustomerController.Get">
+            <summary>
+            Get all customers
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:CustomerAPI.Controllers.CustomerController.FindCustomer(System.String)">
             <summary>
-            Find customer details
+            Search customer 
             </summary>
-            <param name="name"></param>
+            <param name="searchWord"></param>
             <returns></returns>
         </member>
     </members>

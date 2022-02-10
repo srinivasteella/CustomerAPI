@@ -6,7 +6,7 @@ namespace CustomerAPI.Repository
 {
     public interface IDBManager : IDisposable
     {
-        IRepository<T> CreateRepository<T>() where T : class;
+        IRepository<T> GetRepository<T>() where T : class;
         Task<int> SaveAsync();
     }
     class DBManager : IDBManager
@@ -17,7 +17,7 @@ namespace CustomerAPI.Repository
         {
             _ctx = ctx;
         }
-        public IRepository<T> CreateRepository<T>() where T : class
+        public IRepository<T> GetRepository<T>() where T : class
         {
             if (_repositories == null)
                 _repositories = new Hashtable();
@@ -37,7 +37,7 @@ namespace CustomerAPI.Repository
         }
 
         #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
+        private bool disposedValue = false;
 
         protected virtual void Dispose(bool disposing)
         {
