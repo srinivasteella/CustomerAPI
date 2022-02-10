@@ -6,7 +6,7 @@ The overall objective of the application is to make customer API that allows man
 >	Update a Customer
 >	Find a Customer by Firts or Last Name
 >	Delete a Customer
-
+````
 # Sample Input to Add a customer
 
 {
@@ -14,6 +14,7 @@ The overall objective of the application is to make customer API that allows man
   "lastName": "lastname",
   "dob": "01/01/2000"
 }
+
 
 # Sample Input to Update or Delete a customer
 
