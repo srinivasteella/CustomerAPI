@@ -27,33 +27,37 @@ namespace CustomerAPI.Service
 
         public async Task<bool> AddCustomer(Customer customer)
         {
+            bool isSuccess = false;
             try
             {
                 await _dbManager.GetRepository<Customer>().Add(customer);
-                await _dbManager.SaveAsync();
-
+                var result = await _dbManager.SaveAsync();
+                if (result == 1) isSuccess = true;
             }
             catch (Exception)
             {
                 //log
-                return false;
+                return isSuccess;
             }
-            return true;
+            return isSuccess;
         }
 
         public async Task<bool> DeleteCustomer(Customer customer)
         {
+            bool isSuccess = false;
+
             try
             {
                 _dbManager.GetRepository<Customer>().Delete(customer);
-                await _dbManager.SaveAsync();
+                var result = await _dbManager.SaveAsync();
+                if (result == 1) isSuccess = true;
             }
             catch (Exception)
             {
                 //log
-                return false;
+                return isSuccess;
             }
-            return true;
+            return isSuccess;
         }
 
         public async Task<Customer> FindCustomer(string searchWord)
@@ -92,18 +96,21 @@ namespace CustomerAPI.Service
 
         public async Task<bool> UpdateCustomer(Customer customer)
         {
+            bool isSuccess = false;
+
             try
             {
                 _dbManager.GetRepository<Customer>().Update(customer);
-                await _dbManager.SaveAsync();
+                var result = await _dbManager.SaveAsync();
+                if (result == 1) isSuccess = true;
             }
             catch (Exception)
             {
                 //log
-                return false;
+                return isSuccess;
             }
 
-            return true;
+            return isSuccess;
         }
     }
 }
